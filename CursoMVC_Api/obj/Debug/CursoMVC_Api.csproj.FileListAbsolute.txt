@@ -93,3 +93,7 @@ C:\Users\pablo\OneDrive\Desktop\MVC Entity Framework\CursoMVC_Api\CursoMVC_Api\C
 C:\Users\pablo\OneDrive\Desktop\MVC Entity Framework\CursoMVC_Api\CursoMVC_Api\CursoMVC_Api\obj\Debug\CursoMVC_Api.csproj.CopyComplete
 C:\Users\pablo\OneDrive\Desktop\MVC Entity Framework\CursoMVC_Api\CursoMVC_Api\CursoMVC_Api\obj\Debug\CursoMVC_Api.dll
 C:\Users\pablo\OneDrive\Desktop\MVC Entity Framework\CursoMVC_Api\CursoMVC_Api\CursoMVC_Api\obj\Debug\CursoMVC_Api.pdb
+C:\Users\pablo\OneDrive\Desktop\MVC Entity Framework\CursoMVC_Api\CursoMVC_Api\CursoMVC_Api\bin\EntityFramework.dll
+C:\Users\pablo\OneDrive\Desktop\MVC Entity Framework\CursoMVC_Api\CursoMVC_Api\CursoMVC_Api\bin\EntityFramework.SqlServer.dll
+C:\Users\pablo\OneDrive\Desktop\MVC Entity Framework\CursoMVC_Api\CursoMVC_Api\CursoMVC_Api\bin\EntityFramework.xml
+C:\Users\pablo\OneDrive\Desktop\MVC Entity Framework\CursoMVC_Api\CursoMVC_Api\CursoMVC_Api\bin\EntityFramework.SqlServer.xml

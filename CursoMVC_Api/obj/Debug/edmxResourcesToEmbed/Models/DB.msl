@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cursomvcapiModelStoreContainer" CdmEntityContainer="cursomvcapiEntities">
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="cursomvcapiModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="idStatus" ColumnName="idStatus" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
