@@ -7,17 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursoMVC_Api.Models
+namespace CursoMVC_Api.Models.WS
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class animal
     {
         public int id { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public int idStatus { get; set; }
-        public string token { get; set; }
+        public string name { get; set; }
+        public Nullable<int> idState { get; set; }
+        public Nullable<int> patas { get; set; }
     }
 }

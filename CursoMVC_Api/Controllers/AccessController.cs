@@ -29,7 +29,7 @@ namespace CursoMVC_Api.Controllers
             oR.Result = 0;
             try
             {
-                using (cursomvcapiEntities db = new cursomvcapiEntities())
+                using (cursomvcapiEntities1 db = new cursomvcapiEntities1())
                 {
                     var lst = db.user.Where(p=>p.email==model.Email && p.password==model.Password && p.idStatus==1);
 

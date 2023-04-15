@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="584a01797c3a499b923e56c56ddb8822" Name="Diagram1">
-        <EntityTypeShape EntityType="cursomvcapiModel.user" Width="1.5" PointX="0.75" PointY="0.75" />
+      <Diagram DiagramId="c62c3b46adbf480782b17df6b471ad83" Name="Diagram1">
+        <EntityTypeShape EntityType="cursomvcapiModel.animal" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cursomvcapiModel.user" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

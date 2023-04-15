@@ -12,5 +12,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="animal">
+      <EntityTypeMapping TypeName="cursomvcapiModel.animal">
+        <MappingFragment StoreEntitySet="animal">
+          <ScalarProperty Name="patas" ColumnName="patas" />
+          <ScalarProperty Name="idState" ColumnName="idState" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

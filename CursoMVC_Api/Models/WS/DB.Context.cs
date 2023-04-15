@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CursoMVC_Api.Models
+namespace CursoMVC_Api.Models.WS
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class cursomvcapiEntities : DbContext
+    public partial class cursomvcapiEntities1 : DbContext
     {
-        public cursomvcapiEntities()
-            : base("name=cursomvcapiEntities")
+        public cursomvcapiEntities1()
+            : base("name=cursomvcapiEntities1")
         {
         }
     
@@ -25,6 +25,7 @@ namespace CursoMVC_Api.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<animal> animal { get; set; }
         public virtual DbSet<user> user { get; set; }
     }
 }
