@@ -43,5 +43,42 @@ namespace CursoMVC_Api.Controllers
             }
             return oR;
         }
+
+        [HttpPost]
+        public Reply Add([FromBody] AnimalViewModel model)
+        {
+            Reply oR = new Reply();
+            oR.Result = 0;  
+
+            try
+            {
+                using (cursomvcapiEntities1 db = new cursomvcapiEntities1())
+                {
+                    animal oAnimal = new animal();
+                    oAnimal.idState = 1;
+                    oAnimal.name = model.Name;
+                    oAnimal.patas = model.Patas;
+
+                    db.animal.Add(oAnimal);
+                    db.SaveChanges();
+          
+                    List<ListAnimalsViewModel> lst = (from p in db.animal
+                                                      where p.idState == 1
+                                                      select new ListAnimalsViewModel
+                                                      {
+                                                          Name = p.name,
+                                                          Patas = p.patas
+                                                      }).ToList();
+                    oR.Data = lst;
+                    oR.Result = 1;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                oR.Message = ("Ocurrio un error en el servidor, intenta mas tarde");
+            }
+            return oR;
+        }
     }
 }
