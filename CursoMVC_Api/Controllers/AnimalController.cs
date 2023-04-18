@@ -80,6 +80,7 @@ namespace CursoMVC_Api.Controllers
             return oR;
         }
 
+        [HttpPut]
         public Reply Edit([FromBody] AnimalViewModel model)
         {
             Reply oR = new Reply();
@@ -103,6 +104,38 @@ namespace CursoMVC_Api.Controllers
                     animal oAnimal = db.animal.Find(model.Id);
                     oAnimal.name = model.Name;
                     oAnimal.patas = model.Patas;
+                    db.Entry(oAnimal).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+
+                    List<ListAnimalsViewModel> lst = List(db);
+                    oR.Data = lst;
+                    oR.Result = 1;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                oR.Message = ("Ocurrio un error en el servidor, intenta mas tarde");
+            }
+            return oR;
+        }
+        [HttpPost]
+        public Reply Delete([FromBody] AnimalViewModel model)
+        {
+            Reply oR = new Reply();
+            oR.Result = 0;
+
+            if (!Verify(model.Token))
+            {
+                oR.Message = "No autorizado";
+                return oR;
+            }
+            try
+            {
+                using (cursomvcapiEntities1 db = new cursomvcapiEntities1())
+                {
+                    animal oAnimal = db.animal.Find(model.Id);
+                    oAnimal.idState = 2;
                     db.Entry(oAnimal).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
