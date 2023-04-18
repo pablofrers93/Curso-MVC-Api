@@ -11,6 +11,7 @@ namespace CursoMVC_Api.Controllers
 {
     public class BaseController : ApiController
     {
+        public string error = "";
         public bool Verify(string token)
         {
             using (cursomvcapiEntities1 db = new cursomvcapiEntities1())
