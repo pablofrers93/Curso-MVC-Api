@@ -6,6 +6,10 @@ using System.Net.Http;
 using System.Web.Http;
 using CursoMVC_Api.Models.WS;
 using CursoMVC_Api.Models;
+using System.Threading.Tasks;
+using System.Web;
+using System.IO;
+using System.Text;
 
 namespace CursoMVC_Api.Controllers
 {
@@ -119,7 +123,7 @@ namespace CursoMVC_Api.Controllers
             }
             return oR;
         }
-        [HttpPost]
+        [HttpDelete]
         public Reply Delete([FromBody] AnimalViewModel model)
         {
             Reply oR = new Reply();
@@ -144,11 +148,75 @@ namespace CursoMVC_Api.Controllers
                     oR.Result = 1;
                 }
 
-            }
+             }
             catch (Exception ex)
             {
                 oR.Message = ("Ocurrio un error en el servidor, intenta mas tarde");
             }
+            return oR;
+        }
+
+        [HttpPost]
+        public async Task<Reply> Photo([FromUri] AnimalPictureViewModel model)
+        {
+            Reply oR = new Reply();
+            oR.Result = 0;
+
+            string root = HttpContext.Current.Server.MapPath("~/App_Data");
+            var provider = new MultipartFormDataStreamProvider(root);
+
+            if (!Verify(model.Token))
+            {
+                oR.Message = "No autorizado";
+                return oR;
+            }
+            // viene multipart
+
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                oR.Message = "No viene imagen";
+                return oR;
+            }
+
+            await Request.Content.ReadAsMultipartAsync(provider);
+
+            FileInfo fileInfoPicture = null;
+
+            foreach (MultipartFileData filedata in provider.FileData)
+            {
+                if (filedata.Headers.ContentDisposition.Name.Replace("\\", "").Replace("/", "").Equals("picture"))
+                {
+                    fileInfoPicture = new FileInfo(filedata.LocalFileName);
+                }
+            }
+
+            if (fileInfoPicture != null)
+            {
+                using (FileStream fs = fileInfoPicture.Open(FileMode.Open, FileAccess.Read))
+                {
+                    byte[] b = new byte[fileInfoPicture.Length];
+                    UTF8Encoding temp = new UTF8Encoding(true);
+                    while (fs.Read(b, 0, b.Length) > 0) ;
+
+                    try
+                    {
+                            using (cursomvcapiEntities1 db = new cursomvcapiEntities1())
+                            {
+                                var oAnimal = db.animal.Find(model.Id);
+                                oAnimal.picture = b;
+                                db.Entry(oAnimal).State = System.Data.Entity.EntityState.Modified;
+                                db.SaveChanges();
+                                oR.Result = 1;
+                            }
+                    }
+                    catch (Exception)
+                    {
+
+                            oR.Message = "Intenta mas tarde";
+                    }
+                }
+            }
+
             return oR;
         }
         #region HELPERS

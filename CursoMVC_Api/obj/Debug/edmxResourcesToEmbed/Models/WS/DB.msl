@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="cursomvcapiModelStoreContainer" CdmEntityContainer="cursomvcapiEntities1">
-    <EntitySetMapping Name="animal">
-      <EntityTypeMapping TypeName="cursomvcapiModel.animal">
-        <MappingFragment StoreEntitySet="animal">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="idState" ColumnName="idState" />
-          <ScalarProperty Name="patas" ColumnName="patas" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="user">
       <EntityTypeMapping TypeName="cursomvcapiModel.user">
         <MappingFragment StoreEntitySet="user">
@@ -19,6 +9,17 @@
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="idStatus" ColumnName="idStatus" />
           <ScalarProperty Name="token" ColumnName="token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="animal">
+      <EntityTypeMapping TypeName="cursomvcapiModel.animal">
+        <MappingFragment StoreEntitySet="animal">
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="patas" ColumnName="patas" />
+          <ScalarProperty Name="idState" ColumnName="idState" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

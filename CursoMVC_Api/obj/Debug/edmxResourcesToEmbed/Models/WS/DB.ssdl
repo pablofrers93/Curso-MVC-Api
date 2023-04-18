@@ -8,6 +8,7 @@
     <Property Name="name" Type="varchar" MaxLength="50" />
     <Property Name="idState" Type="int" />
     <Property Name="patas" Type="int" />
+    <Property Name="picture" Type="image" />
   </EntityType>
   <EntityType Name="user">
     <Key>
